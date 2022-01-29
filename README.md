@@ -35,7 +35,7 @@ Now that the host B "server" is ready to receive your files,
 you can use either a *web browser* or a *terminal window* to 
 upload your file saved on host A.
 
-- Upload your file opening a *web browser* on the host A:
+- Upload your file opening a *web browser* on the host A, point to the URL below, select your file and click the *Upload* button.
 ```bash
 http://1.23.45.67:8888
 ```
