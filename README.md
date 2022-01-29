@@ -23,7 +23,7 @@ for instance, host A and host B.
 First, we need to install this application on both machines.
 
 ### Use Case 1 
-#### Upload a file saved on host A (IP 192.168.1.10) to host B (IP 1.23.45.67).
+#### Upload a file saved on host A to host B (IP 1.23.45.67).
 
 - Run the command below on the host B to start the 
   "server part" of the application:
@@ -46,7 +46,7 @@ python3 upload_file.py -f <path-to-file-to-upload> -h http://1.23.45.67:8888
 ```
 
 ### Use Case 2 
-#### Download a file stored on host A (IP 1.23.45.67) to host B (IP 192.168.1.20).
+#### Download a file stored on host A (IP 1.23.45.67) to host B.
 
 - Run the command below on the host A to start the 
   "server part" of the application:
