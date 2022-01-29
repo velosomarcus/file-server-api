@@ -66,13 +66,24 @@ Return:
 <hr />
 
 ### Use Case 1
-Upload a file manually using the CLI client.
+Upload a file manually.
 
-- Install the repository on the machine you have a file to upload to the API.
-- Run the command below:
+You can use a *web browser* or a *terminal window* to 
+upload your file to the API.
+
+- Upload your file using a *web browser*:
+  - Point you browser to the URL below, select your file and click the *Upload* button.
+```bash
+http://host:port/api/filename
+```
+
+- To upload your file using a *terminal window*, 
+  you first need to install the repository on 
+  the machine you have a file to upload to the API.
+  And then run the command below:
 ```bash
 cd <folder-where-you-installed-the-application>
-python3 api_client.py -f <path-to-file-to-upload> -h http://1.23.45.67:8888
+python3 api_client.py -f filename -h host:port
 ```
 
 ### Use Case 2 
