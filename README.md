@@ -79,7 +79,7 @@ http://host:port/api/filename
 
 - To upload your file using a *terminal window*, 
   you first need to install the repository on 
-  the machine you have a file to upload to the API.
+  the machine where you have a file to upload to the API.
   And then run the command below:
 ```bash
 cd <folder-where-you-installed-the-application>
@@ -99,5 +99,15 @@ http://host:port/api/filename
 - Download your file using a *terminal window*, using one of the commands below:
 ```bash
 wget http://host:port/api/filename
-curl http://host:port/api/filename --output <filename>
+curl http://host:port/api/filename --output filename
 ```
+
+
+### Note:
+
+In these instructions, the words *host*, *port* and *filename* 
+must be replaced with their current values of you project. 
+For example: 
+- *host* is the IP of your API server machine
+- *port* is the port you choose during the run command
+- *filename* is the name of the file you are uploading, downloading or deleting
