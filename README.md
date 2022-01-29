@@ -7,7 +7,7 @@ and the port you choose is not blocked by a firewall.
 
 ## Install
 
-These instructions assume you already have Python3 installed on you machine.
+These instructions assume that you already have Python3 installed on you machine.
 
 ```bash
 git clone https://github.com/velosomarcus/upload-download-files.git
