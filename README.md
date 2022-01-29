@@ -76,9 +76,9 @@ python3 api_client.py -f <path-to-file-to-upload> -h http://1.23.45.67:8888
 ```
 
 ### Use Case 2 
-Download a file manually
+Download a file manually.
 
-You can use either a *web browser* or a *terminal window* to 
+You can use a *web browser* or a *terminal window* to 
 download your file stored on the API.
 
 - Download your file opening a *web browser*:
