@@ -109,5 +109,5 @@ In these instructions, the words *host*, *port* and *filename*
 must be replaced with their current values of you project. 
 For example: 
 - *host* is the IP of your API server machine
-- *port* is the port you choose during the run command
+- *port* is the port you choose when you run the API
 - *filename* is the name of the file you are uploading, downloading or deleting
