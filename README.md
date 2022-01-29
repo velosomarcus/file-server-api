@@ -7,6 +7,12 @@ and the port you choose is not blocked by a firewall.
 
 ## Install
 
+```bash
+git clone https://github.com/velosomarcus/upload-download-files.git
+cd upload-download-files
+pip3 install -r requirements.txt
+```
+
 
 ## Usage
 
