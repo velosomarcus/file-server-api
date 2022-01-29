@@ -1,5 +1,5 @@
 # File Server API
-An API to Upload and Download Files and a CLI Client to upload files manually.
+A simple API to Upload and Download Files and a CLI Client to upload files manually.
 
 ## Install
 
