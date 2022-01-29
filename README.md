@@ -3,7 +3,8 @@ A Web Server and a CLI to Upload and Download Files.
 
 You can copy files between any machines as long as 
 they can communicate with each other over TCP/IP, 
-and the port you choose is not blocked by a firewall.
+and the port you choose on the host that will be 
+running your "server" is not blocked by a firewall.
 
 ## Install
 
