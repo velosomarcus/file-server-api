@@ -1,70 +1,92 @@
-# Upload Download Files
-A Web Server and a CLI to Upload and Download Files.
-
-You can copy files between any machines as long as 
-they can communicate with each other over TCP/IP, 
-and the port you choose on the host that will be 
-running your "server" is not blocked by a firewall.
+# File Server API
+An API to Upload and Download Files and a CLI Client to upload files manually.
 
 ## Install
 
 These instructions assume that you already have Python3 installed on you machine.
 
 ```bash
-git clone https://github.com/velosomarcus/upload-download-files.git
-cd upload-download-files
-pip3 install -r requirements.txt
+git clone https://github.com/velosomarcus/file-server-api.git
+cd file-server-api
+python3 -m pip install -r requirements.txt
 ```
 
+## Run the API
+
+```bash
+cd file-server-api
+python3 main.py -p 8888 [-o]  # see the help running "python3 main.py --help"
+```
 
 ## Usage
 
-Let's say we want to transfer files between two machines, 
-for instance, host A and host B.
-First, we need to install this application on both machines.
+### API Endpoints
+<hr />
 
-### Use Case 1 
-#### Upload a file saved on host A to host B (IP 1.23.45.67).
+URL:
+- http://host:port/api
 
-- Run the command below on the host B to start the 
-  "server part" of the application:
-```bash
-python3 main.py -p 8888
-```
+Description:
+- Endpoint to upload a file. It is necessary to send in the Http request the image file.
 
-Now that the host B "server" is ready to receive your files, 
-you can use either a *web browser* or a *terminal window* to 
-upload your file saved on host A.
+Method:
+- POST
 
-- Upload your file opening a *web browser* on the host A, point to the URL below, select your file and click the *Upload* button.
-```bash
-http://1.23.45.67:8888
-```
-- Upload your file using a *terminal window* on the host A:
+Return:
+- Result of the upload process.
+
+<hr />
+
+URL:
+- http://host:port/api/filename
+
+Description:
+- Endpoint to download a file.
+
+Method:
+- GET
+
+Return:
+- The file itself.
+
+<hr />
+
+URL:
+- http://host:port/api/filename
+
+Description:
+- Endpoint to delete an uploaded file.
+
+Method:
+- DELETE
+
+Return:
+- Result of the delete process.
+
+<hr />
+
+### Use Case 1
+Upload a file manually using the CLI client.
+
+- Install the repository on the machine you have a file to upload to the API.
+- Run the command below:
 ```bash
 cd <folder-where-you-installed-the-application>
-python3 upload_file.py -f <path-to-file-to-upload> -h http://1.23.45.67:8888
+python3 api_client.py -f <path-to-file-to-upload> -h http://1.23.45.67:8888
 ```
 
 ### Use Case 2 
-#### Download a file stored on host A (IP 1.23.45.67) to host B.
+Download a file manually
 
-- Run the command below on the host A to start the 
-  "server part" of the application:
+You can use either a *web browser* or a *terminal window* to 
+download your file stored on the API.
+
+- Download your file opening a *web browser*:
 ```bash
-python3 main.py -p 8888
+http://host:port/api/filename
 ```
-
-Now that the host A "server" is ready to serve your files, 
-you can use either a *web browser* or a *terminal window* to 
-download your file stored on host A.
-
-- Download your file opening a *web browser* on the host B:
+- Download your file using a *terminal window*, using one of the commands below:
 ```bash
-http://1.23.45.67:8888
-```
-- Download your file using a *terminal window* on the host A:
-```bash
-curl http://1.23.45.67:8888/<filename> --output <filename>
-wget http://1.23.45.67:8888/<filename>
+wget http://host:port/api/filename
+curl http://host:port/api/filename --output <filename>
 ```

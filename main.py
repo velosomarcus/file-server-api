@@ -33,16 +33,16 @@ def main(port, ow):
     global overwrite
     overwrite = ow
     print()
-    logger.info("--------------------------------------")
-    logger.info("Upload Download Files Service v-1.0.10")
+    logger.info("------------------------")
+    logger.info("File Server API v-1.0.10")
     logger.info("Files Folder: {}/files".format(os.getcwd()))
     logger.info("Allow overwrite existing files: {}".format(ow))
-    logger.info("--------------------------------------\n")
+    logger.info("------------------------\n")
 
     app.run("0.0.0.0", port=port, debug=False)
 
 
-@app.route('/<filename>', methods=['GET'])
+@app.route('/api/<filename>', methods=['GET', 'DELETE'])
 def download_file(filename):
     if request.method == 'GET':
         path_and_filename = os.path.join(UP_DOWN_FOLDER, filename)
@@ -55,8 +55,22 @@ def download_file(filename):
             app.logger.info('File not found: %s  Client-IP: %s', filename, request.remote_addr)
             return 'File not found', 404
 
+    elif request.method == 'DELETE':
+        path_and_filename = os.path.join(UP_DOWN_FOLDER, filename)
+        if os.path.isfile(path_and_filename):
+            os.unlink(path_and_filename)
+            return jsonify(
+                {
+                    'delete_success': True,
+                    'message': 'File is deleted'
+                }
+            )
+        else:
+            app.logger.info('File not found: %s  Client-IP: %s', filename, request.remote_addr)
+            return 'File not found', 404
 
-@app.route('/', methods=['GET', 'POST'])
+
+@app.route('/api', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'GET':
         return '''
