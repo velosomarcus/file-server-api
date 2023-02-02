@@ -50,7 +50,7 @@ def download_file(filename):
             if path_and_filename[:1] == ".":  # required to avoid error when call send_file() function
                 path_and_filename = os.getcwd() + path_and_filename[1:]
 
-            return send_file(path_and_filename, attachment_filename=filename)
+            return send_file(path_and_filename, download_name=filename)
         else:
             app.logger.info('File not found: %s  Client-IP: %s', filename, request.remote_addr)
             return 'File not found', 404
