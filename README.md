@@ -3,7 +3,9 @@ A simple API to Upload and Download Files and a CLI Client to upload files manua
 
 ## Install
 
-These instructions assume that you already have Python3 installed on you machine.
+### Running on your local machine
+
+These instructions assume that we already have Python3 installed on our machine.
 
 ```bash
 git clone https://github.com/velosomarcus/file-server-api.git
@@ -11,11 +13,28 @@ cd file-server-api
 python3 -m pip install -r requirements.txt
 ```
 
-## Run the API
+#### Run the API
 
 ```bash
 cd file-server-api
 python3 main.py -p 8888 [-o]  # see the help running "python3 main.py --help"
+```
+
+### Running as a Docker container
+
+We can use the existing image on Docker Hub, at:
+https://hub.docker.com/repository/docker/marcusveloso/file-server-api
+
+Or we can build the image following these instructions
+
+#### How to build the image:
+```bash
+docker build --no-cache -t file-server-api:<tag> . -f ./docker/Dockerfile
+```
+
+#### How to create and run the container:
+```bash
+docker run --name <file-server-api-container-name> -p 8888:8888 -d file-server-api:<tag>
 ```
 
 ## Usage
