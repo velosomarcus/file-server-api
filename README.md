@@ -19,6 +19,7 @@ python3 -m pip install -r requirements.txt
 cd file-server-api
 python3 main.py -p 8888 [-o]  # see the help running "python3 main.py --help"
 ```
+Now this machine is serving the files under the folder `file-server-api/files`.
 
 ### Running as a Docker container
 
